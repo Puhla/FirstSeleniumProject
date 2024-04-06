@@ -102,7 +102,6 @@ public void findElementByXpath() {
 //*[@id='firstName' or @name='lastName']
 //*[@id='firstName' and @name='lastName']
 }
-
 @AfterMethod
     public void tearDown(){
         driver.quit();

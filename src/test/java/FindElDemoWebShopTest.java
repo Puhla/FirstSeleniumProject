@@ -48,6 +48,22 @@ public void findElementByCssSelector(){
 
 }
 
+@Test
+public void findElementByXpath() {
+	driver.findElement (By.xpath ("//*[@id='dialog-notifications-error']"));
+	driver.findElement (By.xpath ("//*[@id='flyout-cart']"));
+	driver.findElement (By.xpath ("//*[@id='bar-notification']"));
+	driver.findElement (By.xpath ("//*[href='/register']"));
+	driver.findElement(By.xpath("//li[@class='inactive']/a[@href='/computers']"));
+	driver.findElement(By.xpath("//span[@class='close']"));
+	driver.findElement(By.xpath("//a[@href='/login']"));
+	driver.findElement(By.xpath("//*[@class='count']"));
+	driver.findElement(By.xpath("//*[@class='header-menu']"));
+
+	
+	
+}
+
 @AfterMethod
 public void tearDown () {
 	driver.quit ();
