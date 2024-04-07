@@ -21,7 +21,7 @@ public void createNewAccountPositiveTest () {
 	type (By.name ("LastName"), "Romanov");
 	
 	//enter email
-	type (By.name ("Email"), "romanov" + 29+ "@gmail.com");
+	type (By.name ("Email"), "romanov" + 48+ "@gmail.com");
 	
 	//enter Password
 	type (By.name ("Password"), "$Roma!$1");
@@ -34,8 +34,8 @@ public void createNewAccountPositiveTest () {
 	//click (By.cssSelector (".register-continue-button"));
 	
 	
-	//assert Continue button is Present
-	Assert.assertTrue (isElementPresent (By.cssSelector (".master-wrapper-content")));
+	//assert
+	Assert.assertTrue (isElementPresent (By.cssSelector ("div:nth-child(1) ul:nth-child(1)  [class='account']")));
 	
 }
 
