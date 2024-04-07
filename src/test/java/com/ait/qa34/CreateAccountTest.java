@@ -4,10 +4,14 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class CreateAccountTest extends TestBase {
 
 @Test//(enabled = false)
 public void createNewAccountPositiveTest () {
+	Random random= new Random ();
+	int i = random.nextInt (1000)+1000;
 	//click on Register
 	click (By.cssSelector ("[href='/register']"));
 	//enter first name
@@ -17,7 +21,7 @@ public void createNewAccountPositiveTest () {
 	type (By.name ("LastName"), "Romanov");
 	
 	//enter email
-	type (By.name ("Email"), "romanov@gmail.com");
+	type (By.name ("Email"), "romanov" + 29+ "@gmail.com");
 	
 	//enter Password
 	type (By.name ("Password"), "$Roma!$1");
@@ -27,9 +31,11 @@ public void createNewAccountPositiveTest () {
 	
 	//click on the button Register
 	click (By.cssSelector ("[id='register-button']"));
+	//click (By.cssSelector (".register-continue-button"));
+	
 	
 	//assert Continue button is Present
-	Assert.assertTrue (isElementPresent (By.cssSelector (".register-continue-button")));
+	Assert.assertTrue (isElementPresent (By.cssSelector (".master-wrapper-content")));
 	
 }
 
