@@ -1,4 +1,4 @@
-package com.ait.qa34;
+package com.ait.qa34.tests;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -24,9 +24,9 @@ public void setUp() {
 public void tearDown(){
 	driver.quit ();
 }
+
 //универсальный метод -> находит хотя бы один элемент
 public boolean isElementPresent(By locator){
-	
 	return driver.findElements (locator).size () > 0;
 }
 public void type (By locator, String text) {
@@ -35,7 +35,7 @@ public void type (By locator, String text) {
 	driver.findElement (locator).sendKeys (text);
 }
 
-void click (By locator) {
+public void click (By locator) {
 	driver.findElement (locator).click ();
 }
 public boolean isAlertPresent(){
@@ -48,4 +48,54 @@ public boolean isAlertPresent(){
 	}
 }
 
+
+public void fillLoginOnReturningCustomerForm(String email, String password)  {
+	int i;
+	type (By.name ("Email"), email);
+	type (By.name ("Password"), password);
+}
+public void clickOnLoginLink () {
+	click(By.cssSelector(".ico-login"));
+}
+
+
+
+
+
+protected void clickOnLoginInButton () {
+	click(By.cssSelector (".login-button"));
+}
+public void clickOnRegisterButton () {
+	click (By.cssSelector ("[id='register-button']"));
+}
+
+public void fillRegisterForm (int i) {
+	type (By.name ("FirstName"), "Roman");
+	type (By.name ("LastName"), "Romanov");
+	type (By.name ("Email"), "romanov" + i + "@gmail.com");
+	type (By.name ("Password"), "$Roma!$1");
+	type (By.name ("ConfirmPassword"), "$Roma!$1");
+}
+
+public void clickOnRegisterLink () {
+	
+	click (By.cssSelector ("[href='/register']"));
+}
+
+public boolean isRegisterLinkPresent () {
+	return isElementPresent ( By.cssSelector ("ul:nth-child(1) .account"));
+}
+
+
+public boolean isHeaderLinksPresent () {
+	return isElementPresent (By.cssSelector (".header-links-wrapper"));
+}
+
+protected void clickOnTopCartLink () {
+	click (By.cssSelector ("[id=topcartlink]"));
+}
+
+public boolean isQuantityOfProduct () {
+	return isElementPresent (By.xpath ("//tbody/tr[1]/td[5]/input[1]"));
+}
 }
